@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Contact | {{ site.shop_name }}{% endblock %}
+{% block content %}<section class="section"><div class="container split"><div><h1>Contact</h1>
+<p><i class="fa-solid fa-phone"></i> {{ site.contact_phone or 'Phone not set yet' }}</p>
+<p><i class="fa-solid fa-location-dot"></i> {{ site.address or 'Address not set yet' }}</p>
+<p><i class="fa-regular fa-clock"></i> {{ site.working_hours }}</p>
+<button type="button" class="btn btn-gold" data-wa-contact><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</button>
+<p class="social">{% if site.instagram_url %}<a href="{{ site.instagram_url }}" aria-label="Instagram" rel="noopener"><i class="fa-brands fa-instagram"></i></a>{% endif %}{% if site.facebook_url %}<a href="{{ site.facebook_url }}" aria-label="Facebook" rel="noopener"><i class="fa-brands fa-facebook"></i></a>{% endif %}</p></div>
+{% if site.maps_embed_url.startswith('https://www.google.com/maps/embed') %}<iframe class="photo" src="{{ site.maps_embed_url }}" title="Map" loading="lazy" style="border:0"></iframe>
+{% else %}<div class="photo ph"><i class="fa-solid fa-map"></i><span>Google Maps embed placeholder</span></div>{% endif %}
+</div></section>{% endblock %}

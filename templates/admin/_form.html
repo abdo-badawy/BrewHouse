@@ -1,0 +1,5 @@
+<form method="post" enctype="multipart/form-data" class="panel">{{ form.hidden_tag() }}
+{% for f in [form.name, form.description, form.price, form.category_id] %}<label>{{ f.label.text }} {{ f() }}</label>{% for e in f.errors %}<small class="err">{{ e }}</small>{% endfor %}{% endfor %}
+<label class="chk">{{ form.is_available() }} Available</label>
+<label>Image (PNG/JPG/WEBP, max 5 MB) <input type="file" name="image_file" accept=".png,.jpg,.jpeg,.webp"></label>
+<button class="btn">Save product</button></form>

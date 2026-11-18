@@ -1,0 +1,4 @@
+{% extends "admin/base.html" %}{% block content %}<h1>Shop settings</h1>
+<form method="post" class="panel"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+{% for k in keys %}<label>{{ k.replace('_',' ').title() }}<input name="{{ k }}" value="{{ site[k] }}" {% if k=='whatsapp_number' %}placeholder="e.g. 20XXXXXXXXXX (country code, digits only)"{% endif %}></label>{% endfor %}
+<button class="btn">Save settings</button></form>{% endblock %}

@@ -1,0 +1,17 @@
+<article class="card" data-reveal>
+  <div class="card-img">
+    {% if p.image_filename %}<img src="{{ url_for('static', filename='uploads/' ~ p.image_filename) }}" alt="{{ p.name }}" loading="lazy">
+    {% else %}<i class="fa-solid fa-mug-hot" aria-hidden="true"></i><span class="sr">No photo yet</span>{% endif %}
+  </div>
+  <div class="card-body">
+    <h3>{{ p.name }}</h3><p>{{ p.description }}</p>
+    <div class="card-foot">
+      <strong>{{ '%.2f'|format(p.price) }} {{ site.currency }}</strong>
+      <div class="qty" data-qty><button type="button" data-q="-1" aria-label="Decrease">−</button><output>1</output><button type="button" data-q="1" aria-label="Increase">+</button></div>
+    </div>
+    <div class="card-actions">
+      <button type="button" class="btn btn-dark" data-add data-id="{{ p.id }}" data-name="{{ p.name }}" data-price="{{ p.price }}"><i class="fa-solid fa-bag-shopping"></i> Add</button>
+      <button type="button" class="btn btn-gold" data-order data-name="{{ p.name }}" data-price="{{ p.price }}"><i class="fa-brands fa-whatsapp"></i> Order Now</button>
+    </div>
+  </div>
+</article>

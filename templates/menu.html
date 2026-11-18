@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Menu | {{ site.shop_name }}{% endblock %}
+{% block content %}
+<section class="section"><div class="container"><h1>Our Menu</h1>
+  <div class="tabs" role="group" aria-label="Filter by category"><button class="tab on" data-cat="all">All</button>
+  {% for c, ps in data %}<button class="tab" data-cat="{{ c.id }}">{{ c.name }}</button>{% endfor %}</div>
+  {% for c, ps in data %}<section class="cat" data-section="{{ c.id }}"><h2>{{ c.name }}</h2><p class="muted">{{ c.description }}</p>
+    <div class="grid">{% for p in ps %}{% include '_card.html' %}{% endfor %}</div></section>{% else %}<p>No items available right now.</p>{% endfor %}
+</div></section>{% endblock %}

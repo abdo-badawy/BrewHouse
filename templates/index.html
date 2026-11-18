@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero"><div class="container">
+  <h1>Your Daily Dose of Happiness</h1>
+  <p>Handcrafted coffee, loose-leaf tea and fresh bakes, made the slow way.</p>
+  <div class="row"><a class="btn btn-gold" href="{{ url_for('menu') }}">Explore Menu</a><button type="button" class="btn btn-light" data-open-cart>Order Now</button></div>
+</div></section>
+<section class="section"><div class="container"><h2>Featured</h2>
+  <div class="grid">{% for p in featured %}{% include '_card.html' %}{% else %}<p>Menu coming soon.</p>{% endfor %}</div>
+  <p class="center"><a class="btn btn-dark" href="{{ url_for('menu') }}">View Menu</a></p></div></section>
+<section class="section alt"><div class="container split">
+  <div class="photo ph"><i class="fa-solid fa-store"></i><span>Shop photo placeholder</span></div>
+  <div><h2>A cafe built around the cup</h2><p>Placeholder intro: replace with the real story of {{ site.shop_name }}.</p><a class="btn btn-dark" href="{{ url_for('about') }}">Learn More</a></div>
+</div></section>
+<section class="section"><div class="container"><h2>Why choose us</h2><div class="grid four">
+  <div class="why"><i class="fa-solid fa-mug-saucer"></i><h3>Fresh Coffee</h3><p>Brewed to order.</p></div>
+  <div class="why"><i class="fa-solid fa-seedling"></i><h3>Premium Ingredients</h3><p>Chosen with care.</p></div>
+  <div class="why"><i class="fa-solid fa-couch"></i><h3>Comfortable Atmosphere</h3><p>Stay a while.</p></div>
+  <div class="why"><i class="fa-solid fa-heart"></i><h3>Friendly Service</h3><p>Always welcome.</p></div></div></div></section>
+<section class="cta"><div class="container"><h2>Hungry? Thirsty? Order in seconds.</h2><a class="btn btn-gold" href="{{ url_for('menu') }}">Order from the menu</a></div></section>
+{% endblock %}
